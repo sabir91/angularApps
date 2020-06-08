@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <h2>Register Product</h2>
+    <form (submit)="RegisterClick(frmRegister.value)" #frmRegister="ngForm">
+       <div class="form-group">
+           <label>Name</label>
+           <div>
+               <input type="text" name="txtName" ngModel #txtName="ngModel"  class="form-control">
+           </div>
+       </div>
+       <div class="form-group">
+           <label>Price</label>
+          <div>
+              <input type="text" name="txtPrice" ngModel #txtPrice="ngModel"  class="form-control">
+          </div>
+       </div>
+       <div class="form-group">
+          <label>Quantity</label>
+         <div>
+             <input type="number" name="txtQty" ngModel #txtQty="ngModel"  class="form-control">
+         </div>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary">Register</button>
+      </div>
+    </form>
+    
+    <dl>
+     <h2>Product Details</h2>
+      ---------------------------------------->
+          <dt>Name</dt>
+          <dd>{{txtName.value}}</dd>
+          <dt>Price</dt>
+          <dd>{{txtPrice.value}}</dd>
+          <dt>Quantity</dt>
+          <dd>{{txtQty.value}}</dd>
+          <dt>Total</dt>
+          <dd>{{txtQty.value * txtPrice.value}}</dd>
+      </dl>
+    </div>
+    
+  

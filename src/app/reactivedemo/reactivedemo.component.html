@@ -1,0 +1,58 @@
+<div class="container">
+        <h2>Nested Forms</h2>
+        <form [formGroup]="frmRegister">
+            <fieldset>
+                <legend>Basic Info</legend>
+                <div class="form-group">
+                    <label>Name</label>
+                    <div>
+                        <input type="text" formControlName="Name" class="form-control" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <div>
+                        <input type="text" formControlName="Price" class="form-control">
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>Stock Details</legend>
+                    <div formGroupName="frmDetails">
+                        <div class="form-group">
+                            <label>Select City</label>
+                            <div>
+                                <select class="form-control" formControlName="City" >
+                                    <option>Delhi</option>
+                                    <option>Hyderabad</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Is in Stock</label>
+                            <div>
+                               <input type="checkbox" formControlName="IsInStock"> Yes
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </fieldset>
+            <div class="form-group">
+                <button (click)="UpdateForm()" class="btn btn-info">Update Form</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+      <h2>Product Details</h2>
+      <dl>
+          <dt>Name</dt>
+          <dd>{{frmRegister.value.Name}}</dd>
+          <dt>Price</dt>
+          <dd>{{frmRegister.value.Price}}</dd>
+          <dt>City</dt>
+          <dd>{{frmRegister.value.frmDetails.City}}</dd>
+          <dt>Stock</dt>
+          <dd>{{(frmRegister.value.frmDetails.IsInStock==true)?"Available":"Out of Stock"}}</dd>
+      </dl>
+    </div>
+    
+    
